@@ -1,9 +1,5 @@
 <link href="http://joey711.github.com/phyloseq/markdown.css" rel="stylesheet"></link>
 
-# The biom package for R
-
-This is an R package for interfacing with the [BIOM](http://biom-format.org/) file format.
-
 BIOM format in R
 =======================
 
