@@ -10,7 +10,7 @@ Author: Paul J. McMurdie <mcmurdie@stanford.edu> and the
     biom-format team http://biom-format.org/
 BugReports: https://github.com/joey711/biom/issues
 URL: https://github.com/joey711/biom/,
-    http://biom-format.org/,
+    http://biom-format.org/
 Description: This is an R package for interfacing with the
     BIOM format. This package includes basic tools for
     reading biom-format files, accessing and subsetting
