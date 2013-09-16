@@ -1,7 +1,8 @@
 <!--
-%\VignetteEngine{knitr}
+%\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{BIOM support in R main vignette}
 -->
+`r library("knitr")`
 `r opts_chunk$set(cache=TRUE, fig.width=9)`
 <link href="http://joey711.github.com/phyloseq/markdown.css" rel="stylesheet"></link>
 

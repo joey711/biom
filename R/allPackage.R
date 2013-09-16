@@ -7,9 +7,15 @@
 #' that maps to functionality in other languages
 #' that support biom-format, like python.
 #'
+#' @import methods
 #' @name biom-package
 #' @author Paul J. McMurdie II \email{mcmurdie@@stanford.edu}
-#' @references \url{http://www.biom-format.org/}
+#' @references
+#'  \url{http://www.biom-format.org/}
+#'  
+#'  \url{https://github.com/joey711/biom}
+#'  
+#'  \url{http://cran.r-project.org/web/packages/biom/index.html}
 #' @docType package
 #' @keywords package
 NA
