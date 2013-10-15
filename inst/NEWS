@@ -7,7 +7,9 @@ USER-VISIBLE CHANGES
 
 BUG FIXES
 	- Moved `biom-demo.Rmd` to `vignettes/`
+
 	- Updated `inst/NEWS` (this) file to official format
+
 	- Removed pre-built vignette HTML so that it is re-built during package build. 		  This updates things like the build-date in the vignette, but also ensures that 
 	  the user sees in the vignette the results of code that just worked with their 
 	  copy of the package.
