@@ -1,4 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^.*html$
+README.html
+TODO.html
 TODO.md
