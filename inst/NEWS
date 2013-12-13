@@ -9,7 +9,7 @@ BUG FIXES
 
 	- Clarified license and project in the README.md
 
-	- Added html and TODO.md to .Rbuildignore (requested by CRAN)
+	- Added TODO.html, README.html, and TODO.md to .Rbuildignore (requested by CRAN)
 
 	- Moved `biom-demo.Rmd` to `vignettes/`
 
