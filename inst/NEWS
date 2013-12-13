@@ -7,6 +7,10 @@ USER-VISIBLE CHANGES
 
 BUG FIXES
 
+	- Clarified license and project in the README.md
+
+	- Added html and TODO.md to .Rbuildignore (requested by CRAN)
+
 	- Moved `biom-demo.Rmd` to `vignettes/`
 
 	- Updated `inst/NEWS` (this) file to official format

@@ -3,8 +3,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
 
-<title>The biom package for R</title>
+<title>BIOM format in R</title>
 
 <style type="text/css">
 body, td {
@@ -143,13 +144,25 @@ hr {
 <body>
 <p><link href="http://joey711.github.com/phyloseq/markdown.css" rel="stylesheet"></link></p>
 
-<h1>The biom package for R</h1>
+<h1>BIOM format in R</h1>
 
-<p>This is an R package for interfacing with the <a href="http://biom-format.org/">BIOM</a> file format.</p>
+<p>This is an R package for interfacing with the original JSON style <a href="http://biom-format.org/">BIOM</a> file format. This package includes basic tools for reading biom-format files, accessing and subsetting data tables from a biom object, as well as limited support for writing a biom-object back to a biom-format file. The design of this API is intended to match the python API and other tools included with the biom-format project, but with a decidedly &ldquo;R flavor&rdquo; that should be familiar to R users. This includes S4 classes and methods, as well as extensions of common core functions/methods.</p>
+
+<p>To install the latest stable release of the biom package enter the following command from within an R session:</p>
+
+<pre><code class="S">install.packages(&quot;biom&quot;)
+</code></pre>
+
+<p>To install the latest development version of the biom package, enter the following lines in an R session:</p>
+
+<pre><code class="S">install.packages(&quot;devtools&quot;) # if not already installed
+library(&quot;devtools&quot;)
+install_github(&quot;biom&quot;, &quot;joey711&quot;)
+</code></pre>
 
 <ul>
-<li><p>Feature requests and bug reports for this package should go in the <a href="https://github.com/joey711/biom/issues">issues tracker for the biom R package</a> on GitHub. Issues related to the format itself and not the R interface should be posted on the <a href="https://github.com/biom-format/biom-format/issues">issues tracker for the biom format</a>.</p></li>
-<li><p>Note that the licenses between the biom R package (GPL-2) and some of the other biom-format software are different.</p></li>
+<li><p>Please post feature or support requests and bugs at the <a href="https://github.com/joey711/biom/issues">issues tracker for the biom package</a> on GitHub. Issues related to the format itself and not the R interface should be posted on the <a href="https://github.com/biom-format/biom-format/issues">issues tracker for the biom format</a>.</p></li>
+<li><p>Note that this is a separate (but friendly!) project from the biom-format team, and the software license is different between this package and much of the rest of the biom-format software, which has switched to BSD.</p></li>
 <li><p>The offical release version of this package is <a href="http://cran.r-project.org/web/packages/biom/index.html">made available through CRAN</a>.</p></li>
 </ul>
 
