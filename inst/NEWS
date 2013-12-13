@@ -6,13 +6,15 @@ USER-VISIBLE CHANGES
 	- No user-visible changes. All future CRAN compatibility changes.
 
 BUG FIXES
+
 	- Moved `biom-demo.Rmd` to `vignettes/`
 
 	- Updated `inst/NEWS` (this) file to official format
 
-	- Removed pre-built vignette HTML so that it is re-built during package build. 		  This updates things like the build-date in the vignette, but also ensures that 
-	  the user sees in the vignette the results of code that just worked with their 
-	  copy of the package.
+	- Removed pre-built vignette HTML so that it is re-built during package build.
+ 		  This updates things like the build-date in the vignette, but also ensures that 
+		  the user sees in the vignette the results of code that just worked with their 
+		  copy of the package.
 
 CHANGES IN VERSION 0.3.10
 -------------------------
@@ -21,7 +23,8 @@ USER-VISIBLE CHANGES
 
 	- These changes should not affect any package behavior.
 
-	- Some of the top-level documentation has been changed to reflect new development 	  location on GitHub.
+	- Some of the top-level documentation has been changed to reflect new development
+ 	  location on GitHub.
 
 BUG FIXES
 
@@ -45,6 +48,7 @@ NEW FEATURES
 
 CHANGES IN VERSION 0.3.8
 -------------------------
+
 SIGNIFICANT USER-VISIBLE CHANGES
 
 	- First release version released on CRAN
