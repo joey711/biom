@@ -1,3 +1,16 @@
+CHANGES IN VERSION 0.3.12
+-------------------------
+
+USER-VISIBLE CHANGES
+
+	- No user-visible changes. All future compatibility changes.
+
+BUG FIXES
+
+	- Unit test changes to work with upcoming R release and new testthat version. 
+
+	- This solves Issue 4: https://github.com/joey711/biom/issues/4
+
 CHANGES IN VERSION 0.3.11
 -------------------------
 
