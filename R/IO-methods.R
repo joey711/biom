@@ -28,7 +28,15 @@
 #' @return An instance of the \code{biom-class}.
 #'
 #' @seealso 
-#' The \code{\link{biom}} constructor function.
+#' 
+#' Function to create a biom object from R data,
+#' \code{\link{make_biom}}.
+#' 
+#' Definition of the
+#' \code{\link{biom-class}}. 
+#' 
+#' Function to write a biom format file from a biom object,
+#' \code{\link{write_biom}}
 #'
 #' Accessor functions like \code{\link{header}}.
 #'
@@ -68,13 +76,22 @@ read_biom <- function(biom_file){
 #' @param biom_file (Required). A character string indicating the 
 #'  file location of the biom formatted file. This is a JSON formatted file
 #'  specific to biological datasets. 
-#'  The format is formally defined at \href{http://biom-format.org/documentation/biom_format.html}{the biom-format definition}
+#'  The format is formally defined at 
+#'  \href{http://biom-format.org/documentation/biom_format.html}{the biom-format definition}
 #'
 #' @return Nothing. The first argument, \code{x}, is written to a file.
 #'
 #' @seealso 
+#' 
+#' Function to create a biom object from R data,
+#' \code{\link{make_biom}}.
+#' 
+#' Definition of the
+#' \code{\link{biom-class}}. 
+#' 
+#' The \code{\link{read_biom}} import function.
+#'
 #' Accessor functions like \code{\link{header}}.
-#' \href{http://biom-format.org/}{the biom-format home page}
 #'
 #' @references \url{http://biom-format.org/}
 #'

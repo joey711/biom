@@ -37,7 +37,13 @@ identical(x, y)
   \url{http://biom-format.org/}
 }
 \seealso{
+  Function to create a biom object from R data,
+  \code{\link{make_biom}}.
+
+  Definition of the \code{\link{biom-class}}.
+
+  The \code{\link{read_biom}} import function.
+
   Accessor functions like \code{\link{header}}.
-  \href{http://biom-format.org/}{the biom-format home page}
 }
 

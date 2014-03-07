@@ -62,7 +62,13 @@ read_biom(biom_file)
   \url{http://biom-format.org/}
 }
 \seealso{
-  The \code{\link{biom}} constructor function.
+  Function to create a biom object from R data,
+  \code{\link{make_biom}}.
+
+  Definition of the \code{\link{biom-class}}.
+
+  Function to write a biom format file from a biom object,
+  \code{\link{write_biom}}
 
   Accessor functions like \code{\link{header}}.
 }
