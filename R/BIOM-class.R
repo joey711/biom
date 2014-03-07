@@ -130,6 +130,8 @@ setMethod("biom", c("list"), function(x){
 #' 
 #' \code{\link{read_biom}} 
 #'
+#' @importFrom plyr alply
+#'
 #' @export
 #'
 #' @examples
@@ -144,27 +146,34 @@ setMethod("biom", c("list"), function(x){
 #' omd
 #' # Make a new biom object from component data
 #' y = make_biom(data, smd, omd)
-#' # Should be identical to x.
+#' # Won't be identical to x because of header info.
 #' identical(x, y)
+#' # The data components should be, though.
+#' identical(observation_metadata(x), observation_metadata(y))
+#' identical(sample_metadata(x), sample_metadata(y))
+#' identical(biom_data(x), biom_data(y))
 #' ## Quickly show that writing and reading still identical.
 #' # Define a temporary directory to write .biom files
-#' ## tempdir = tempdir()
-#' ## write_biom(x, biom_file=file.path(tempdir, "x.biom"))
-#' ## write_biom(y, biom_file=file.path(tempdir, "y.biom"))
-#' ## identical(read_biom(file.path(tempdir, "x.biom")),
-#' ##    read_biom(file.path(tempdir, "y.biom")))
+#' tempdir = tempdir()
+#' write_biom(x, biom_file=file.path(tempdir, "x.biom"))
+#' write_biom(y, biom_file=file.path(tempdir, "y.biom"))
+#' x1 = read_biom(file.path(tempdir, "x.biom"))
+#' y1 = read_biom(file.path(tempdir, "y.biom"))
+#' identical(observation_metadata(x1), observation_metadata(y1))
+#' identical(sample_metadata(x1), sample_metadata(y1))
+#' identical(biom_data(x1), biom_data(y1))
 make_biom <- function(data, sample_metadata=NULL, observation_metadata=NULL, id=NULL){
   # The observations / features / OTUs / rows "meta" data table
   if(!is.null(observation_metadata)){
     rows = mapply(list, SIMPLIFY=FALSE, id=as.list(rownames(data)),
-                  metadata=apply(observation_metadata, 1, as.list))
+                  metadata=alply(as.matrix(observation_metadata), 1, .expand=FALSE, .dims=TRUE))
   } else {
     rows = mapply(list, id=as.list(rownames(data)), metadata=NA, SIMPLIFY=FALSE)
   }
   # The samples / sites / columns "meta" data table
   if(!is.null(sample_metadata)){
     columns = mapply(list, SIMPLIFY=FALSE, id=as.list(colnames(data)),
-                     metadata=apply(sample_metadata, 1, as.list)) 
+                     metadata=alply(as.matrix(sample_metadata), 1, .expand=FALSE, .dims=TRUE)) 
   } else {
     columns = mapply(list, id=as.list(colnames(data)), metadata=NA, SIMPLIFY=FALSE)
   }

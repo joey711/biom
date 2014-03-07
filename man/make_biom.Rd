@@ -68,15 +68,22 @@ omd = observation_metadata(x)
 omd
 # Make a new biom object from component data
 y = make_biom(data, smd, omd)
-# Should be identical to x.
+# Won't be identical to x because of header info.
 identical(x, y)
+# The data components should be, though.
+identical(observation_metadata(x), observation_metadata(y))
+identical(sample_metadata(x), sample_metadata(y))
+identical(biom_data(x), biom_data(y))
 ## Quickly show that writing and reading still identical.
 # Define a temporary directory to write .biom files
-## tempdir = tempdir()
-## write_biom(x, biom_file=file.path(tempdir, "x.biom"))
-## write_biom(y, biom_file=file.path(tempdir, "y.biom"))
-## identical(read_biom(file.path(tempdir, "x.biom")),
-##    read_biom(file.path(tempdir, "y.biom")))
+tempdir = tempdir()
+write_biom(x, biom_file=file.path(tempdir, "x.biom"))
+write_biom(y, biom_file=file.path(tempdir, "y.biom"))
+x1 = read_biom(file.path(tempdir, "x.biom"))
+y1 = read_biom(file.path(tempdir, "y.biom"))
+identical(observation_metadata(x1), observation_metadata(y1))
+identical(sample_metadata(x1), sample_metadata(y1))
+identical(biom_data(x1), biom_data(y1))
 }
 \references{
   \url{http://biom-format.org/}
