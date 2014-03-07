@@ -1,6 +1,6 @@
 Package: biom
-Version: 0.3.12
-Date: 2014-02-23
+Version: 0.3.13
+Date: 2014-03-06
 Maintainer: Paul J. McMurdie <mcmurdie@stanford.edu>
 License: GPL-2
 Title: An interface package (beta) for the BIOM file

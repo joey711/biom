@@ -31,7 +31,17 @@
 #' @return An instance of the \code{\link{biom-class}}. 
 #'
 #' @seealso 
+#' 
+#' Function to create a biom object from R data,
+#' \code{\link{make_biom}}.
+#' 
+#' Definition of the
+#' \code{\link{biom-class}}. 
+#' 
 #' The \code{\link{read_biom}} import function.
+#' 
+#' Function to write a biom format file from a biom object,
+#' \code{\link{write_biom}}
 #'
 #' Accessor functions like \code{\link{header}}.
 #'
@@ -61,6 +71,123 @@ setMethod("biom", c("list"), function(x){
 	biom = new("biom", x)
 	return(biom)
 })
+################################################################################
+#' Create a \code{\link{biom-class}} from \code{\link{matrix-class}} or \code{\link{data.frame}}.
+#'
+#' This function creates a valid instance of the \code{\link{biom-class}}
+#' from standard base-R objects like
+#' \code{\link{matrix-class}} or \code{\link{data.frame}}. 
+#' This makes it possible to export any contingency table data 
+#' represented in R to
+#' \href{http://biom-format.org/documentation/biom_format.html}{the biom-format},
+#' regardless of its source.
+#' The object returned by this function is appropriate for writing to
+#' a \code{.biom} file using the \code{\link{write_biom}} function.
+#' The sparse biom-format is not (yet) supported.
+#'
+#' The BIOM file format (canonically pronounced biome) is designed to be
+#' a general-use format for representing biological sample by observation 
+#' contingency tables. BIOM is a recognized standard for the 
+#' \href{http://www.earthmicrobiome.org/}{Earth Microbiome Project} 
+#' and is a \href{http://gensc.org/}{Genomics Standards Consortium} 
+#' candidate project. Please see 
+#' \href{http://biom-format.org/}{the biom-format home page}
+#' for more details.
+#'
+#' @param data (Required). 
+#'  \code{\link{matrix-class}} or \code{\link{data.frame}}.
+#'  A contingency table.
+#'  Observations / features / OTUs / species are rows,
+#'  samples / sites / libraries are columns.
+#'  
+#' @param sample_metadata (Optional). 
+#'  A \code{\link{matrix-class}} or \code{\link{data.frame}}
+#'  with the number of rows equal to the number of samples in \code{data}.
+#'  Sample covariates associated with the count data.
+#'  This should look like the table returned by
+#'  \code{\link{sample_metadata}} on a valid instance
+#'  of the \code{\link{biom-class}}.
+#'  
+#' @param observation_metadata (Optional). 
+#'  A \code{\link{matrix-class}} or \code{\link{data.frame}}
+#'  with the number of rows equal to the number of 
+#'  features / species / OTUs / genes in \code{data}.
+#'  This should look like the table returned by
+#'  \code{\link{observation_metadata}} on a valid instance
+#'  of the \code{\link{biom-class}}.
+#' 
+#' @param id (Optional). Character string. Identifier for the project.
+#' 
+#' @return An object of \code{\link{biom-class}}.
+#'
+#' @references \url{http://biom-format.org/}
+#' 
+#' @seealso
+#' 
+#' \code{\link{write_biom}} 
+#' 
+#' \code{\link{biom-class}} 
+#' 
+#' \code{\link{read_biom}} 
+#'
+#' @export
+#'
+#' @examples
+#' # import with default parameters, specify a file
+#' biomfile = system.file("extdata", "rich_dense_otu_table.biom", package = "biom")
+#' x = read_biom(biomfile)
+#' data = biom_data(x)
+#' data
+#' smd = sample_metadata(x)
+#' smd
+#' omd = observation_metadata(x)
+#' omd
+#' # Make a new biom object from component data
+#' y = make_biom(data, smd, omd)
+#' # Should be identical to x.
+#' identical(x, y)
+#' ## Quickly show that writing and reading still identical.
+#' # Define a temporary directory to write .biom files
+#' ## tempdir = tempdir()
+#' ## write_biom(x, biom_file=file.path(tempdir, "x.biom"))
+#' ## write_biom(y, biom_file=file.path(tempdir, "y.biom"))
+#' ## identical(read_biom(file.path(tempdir, "x.biom")),
+#' ##    read_biom(file.path(tempdir, "y.biom")))
+make_biom <- function(data, sample_metadata=NULL, observation_metadata=NULL, id=NULL){
+  # The observations / features / OTUs / rows "meta" data table
+  if(!is.null(observation_metadata)){
+    rows = mapply(list, SIMPLIFY=FALSE, id=as.list(rownames(data)),
+                  metadata=apply(observation_metadata, 1, as.list))
+  } else {
+    rows = mapply(list, id=as.list(rownames(data)), metadata=NA, SIMPLIFY=FALSE)
+  }
+  # The samples / sites / columns "meta" data table
+  if(!is.null(sample_metadata)){
+    columns = mapply(list, SIMPLIFY=FALSE, id=as.list(colnames(data)),
+                     metadata=apply(sample_metadata, 1, as.list)) 
+  } else {
+    columns = mapply(list, id=as.list(colnames(data)), metadata=NA, SIMPLIFY=FALSE)
+  }
+  # Convert the contingency table to a list
+  datalist = as.list(as.data.frame(as(t(data), "matrix")))
+  names(datalist) <- NULL
+  # Define the list, instantiate as biom-format, and return
+  # (Might eventually expose some of these list elements as function arguments)
+  format_url = "http://biom-format.org/documentation/format_versions/biom-1.0.html"
+  return(biom(list(id=id,
+                   format = "Biological Observation Matrix 1.0.0-dev",
+                   format_url = format_url,
+                   type = "OTU table",
+                   generated_by = sprintf("biom %s", packageVersion("biom")),
+                   date = as.character(Sys.time()),
+                   matrix_type = "dense",
+                   matrix_element_type = "int",
+                   shape = dim(data),
+                   rows = rows,
+                   columns = columns,
+                   data = datalist)
+  ))
+}
 ################################################################################
 #' Method extensions to show for biom objects.
 #'

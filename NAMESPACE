@@ -1,6 +1,6 @@
+export(make_biom)
 export(read_biom)
 export(write_biom)
-export(convert_to_biom)
 exportClasses(biom)
 exportMethods(biom_data)
 exportMethods(biom_shape)

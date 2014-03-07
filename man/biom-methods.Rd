@@ -55,7 +55,15 @@ observation_metadata(x)
 sample_metadata(x)
 }
 \seealso{
+  Function to create a biom object from R data,
+  \code{\link{make_biom}}.
+
+  Definition of the \code{\link{biom-class}}.
+
   The \code{\link{read_biom}} import function.
+
+  Function to write a biom format file from a biom object,
+  \code{\link{write_biom}}
 
   Accessor functions like \code{\link{header}}.
 }

@@ -1,3 +1,10 @@
+CHANGES IN VERSION 0.3.13
+-------------------------
+
+USER-VISIBLE CHANGES
+
+	- Added make_biom function. Creates biom object from standard R data table(s).
+
 CHANGES IN VERSION 0.3.12
 -------------------------
 
