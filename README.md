@@ -15,8 +15,7 @@ To install the latest development version of the biom package, enter the followi
 
 ```S
 install.packages("devtools") # if not already installed
-library("devtools")
-install_github("biom", "joey711")
+devtools::install_github("biom", "joey711")
 ```
 
  * Please post feature or support requests and bugs at the [issues tracker for the biom package](https://github.com/joey711/biom/issues) on GitHub. Issues related to the format itself and not the R interface should be posted on the [issues tracker for the biom format](https://github.com/biom-format/biom-format/issues).
