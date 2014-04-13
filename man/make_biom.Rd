@@ -3,7 +3,7 @@
 \title{Create a \code{\link{biom-class}} from \code{\link{matrix-class}} or \code{\link{data.frame}}.}
 \usage{
   make_biom(data, sample_metadata = NULL,
-  observation_metadata = NULL, id = NULL)
+  observation_metadata = NULL, id = NULL, matrix_element_type = "int")
 }
 \arguments{
   \item{data}{(Required). \code{\link{matrix-class}} or
@@ -29,6 +29,9 @@
 
   \item{id}{(Optional). Character string. Identifier for
   the project.}
+
+  \item{matrix_element_type}{(Optional). Character string. Either
+   'int' or 'float'.}
 }
 \value{
   An object of \code{\link{biom-class}}.

@@ -117,6 +117,8 @@ setMethod("biom", c("list"), function(x){
 #'  of the \code{\link{biom-class}}.
 #' 
 #' @param id (Optional). Character string. Identifier for the project.
+#'
+#' @param matrix_element_type (Optional). Character string. Either 'int' or 'float'
 #' 
 #' @return An object of \code{\link{biom-class}}.
 #'
@@ -162,7 +164,7 @@ setMethod("biom", c("list"), function(x){
 #' identical(observation_metadata(x1), observation_metadata(y1))
 #' identical(sample_metadata(x1), sample_metadata(y1))
 #' identical(biom_data(x1), biom_data(y1))
-make_biom <- function(data, sample_metadata=NULL, observation_metadata=NULL, id=NULL){
+make_biom <- function(data, sample_metadata=NULL, observation_metadata=NULL, id=NULL, matrix_element_type="int"){
   # The observations / features / OTUs / rows "meta" data table
   if(!is.null(observation_metadata)){
     rows = mapply(list, SIMPLIFY=FALSE, id=as.list(rownames(data)),
@@ -190,7 +192,7 @@ make_biom <- function(data, sample_metadata=NULL, observation_metadata=NULL, id=
                    generated_by = sprintf("biom %s", packageVersion("biom")),
                    date = as.character(Sys.time()),
                    matrix_type = "dense",
-                   matrix_element_type = "int",
+                   matrix_element_type = matrix_element_type,
                    shape = dim(data),
                    rows = rows,
                    columns = columns,
