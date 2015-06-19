@@ -117,6 +117,8 @@ setMethod("biom", c("list"), function(x){
 #'  of the \code{\link{biom-class}}.
 #' 
 #' @param id (Optional). Character string. Identifier for the project.
+#'
+#' @param matrix_element_type (Optional). Character string. Either 'int' or 'float'
 #' 
 #' @return An object of \code{\link{biom-class}}.
 #'
@@ -162,7 +164,7 @@ setMethod("biom", c("list"), function(x){
 #' identical(observation_metadata(x1), observation_metadata(y1))
 #' identical(sample_metadata(x1), sample_metadata(y1))
 #' identical(biom_data(x1), biom_data(y1))
-make_biom <- function(data, sample_metadata=NULL, observation_metadata=NULL, id=NULL){
+make_biom <- function(data, sample_metadata=NULL, observation_metadata=NULL, id=NULL, matrix_element_type="int"){
   # The observations / features / OTUs / rows "meta" data table
   if(!is.null(observation_metadata)){
     rows = mapply(list, SIMPLIFY=FALSE, id=as.list(rownames(data)),
@@ -190,7 +192,7 @@ make_biom <- function(data, sample_metadata=NULL, observation_metadata=NULL, id=
                    generated_by = sprintf("biom %s", packageVersion("biom")),
                    date = as.character(Sys.time()),
                    matrix_type = "dense",
-                   matrix_element_type = "int",
+                   matrix_element_type = matrix_element_type,
                    shape = dim(data),
                    rows = rows,
                    columns = columns,
@@ -204,9 +206,10 @@ make_biom <- function(data, sample_metadata=NULL, observation_metadata=NULL, id=
 #' expected behavior. 
 #'
 #' @seealso \code{\link[methods]{show}}
-#' 
+#' @param object biom-class object
 #' @export
-#' @aliases show,biom-method
+#' @aliases show
+#' @aliases biom-method
 #' @docType methods
 #' @rdname show-methods
 #' @examples
@@ -324,7 +327,8 @@ setMethod("matrix_element_type", c("biom"), function(x){
 #' \code{\link{biom_shape}}
 #' 
 #' @export
-#' @aliases nrow,biom-method
+#' @aliases nrow
+#' @aliases biom-method
 #' @docType methods
 #' @rdname nrow-methods
 #' @examples
@@ -356,7 +360,8 @@ setMethod("nrow", c("biom"), function(x){
 #' \code{\link{biom_shape}}
 #' 
 #' @export
-#' @aliases ncol,biom-method
+#' @aliases ncol
+#' @aliases biom-method
 #' @docType methods
 #' @rdname ncol-methods
 #' @examples
@@ -803,5 +808,51 @@ extract_metadata = function(x, indextype, indices, parallel=FALSE){
 		}
 	}
 	return(metadata)
+}
+################################################################################
+# Generic internal function for generating the count matrix.
+#' @keywords internal
+generate_matrix <- function(x){
+  indptr  = x$sample$matrix$indptr+1
+  indices = x$sample$matrix$indices+1
+  data    = x$sample$matrix$data
+  nr = length(x$observation$ids)
+ 
+  counts = sapply(2:length(indptr),function(i){
+    x = rep(0,nr)
+    seq = indptr[i-1]:(indptr[i]-1)
+    x[indices[seq]] = data[seq]
+    x
+    })
+  rownames(counts) = x$observation$ids
+  colnames(counts) = x$sample$ids
+  # I wish this next line wasn't necessary
+  lapply(1:nrow(counts),function(i){
+    counts[i,]
+    })
+}
+################################################################################
+# Generic internal function for generating the metadata.
+#' @keywords internal
+generate_metadata <- function(x){
+  metadata = x$metadata
+  metadata = lapply(1:length(x$ids),function(i){
+      id_metadata = lapply(metadata,function(j){
+        if(length(dim(j))>1){ as.vector(j[,i,drop=FALSE]) }
+        else{ j[i] }
+          })
+      list(id = x$ids[i],metadata=id_metadata)
+    })
+  return(metadata)
+}
+################################################################################
+# Generic internal function for generating a named list. 
+#' @keywords internal
+namedList <- function(...) {
+    L <- list(...)
+    snm <- sapply(substitute(list(...)),deparse)[-1]
+    if (is.null(nm <- names(L))) nm <- snm
+    if (any(nonames <- nm=="")) nm[nonames] <- snm[nonames]
+    setNames(L,nm)
 }
 ################################################################################
