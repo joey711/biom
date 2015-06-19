@@ -7,7 +7,7 @@ Title: An interface package (beta) for the BIOM file
     format.
 Type: Package
 Author: Paul J. McMurdie <mcmurdie@stanford.edu> and
-    Joseph Paulson <nosson@gmail.com>
+    Joseph Paulson <jpaulson@jimmy.harvard.edu>
 BugReports: https://github.com/joey711/biom/issues
 URL: https://github.com/joey711/biom/,
     http://biom-format.org/
