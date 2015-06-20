@@ -1,13 +1,13 @@
 Package: biom
 Version: 0.4.0
-Date: 2014-03-06
+Date: 2015-06-19
 Maintainer: Paul J. McMurdie <mcmurdie@stanford.edu>
 License: GPL-2
 Title: An interface package (beta) for the BIOM file
     format.
 Type: Package
-Author: Paul J. McMurdie <mcmurdie@stanford.edu> and the
-    biom-format team http://biom-format.org/
+Author: Paul J. McMurdie <mcmurdie@stanford.edu> and
+    Joseph Paulson <jpaulson@jimmy.harvard.edu>
 BugReports: https://github.com/joey711/biom/issues
 URL: https://github.com/joey711/biom/,
     http://biom-format.org/
