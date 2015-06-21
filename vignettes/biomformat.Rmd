@@ -6,7 +6,7 @@
 `r opts_chunk$set(cache=TRUE, fig.width=9)`
 <link href="http://joey711.github.com/phyloseq/markdown.css" rel="stylesheet"></link>
 
-# biom package for BIOM file format support in R
+# biomformat package for BIOM file format support in R
 
 This is an [R Markdown document](http://www.rstudio.com/ide/docs/r_markdown). Markdown is a simple formatting syntax for authoring web pages. Further details on [R markdown here](http://www.rstudio.com/ide/docs/r_markdown).
 
@@ -16,7 +16,7 @@ This demo is designed to provide an overview of the biom package to get you star
 
 **Package versions** at the time (`r date()`) of this build:
 ```{r packages}
-library("biom"); packageVersion("biom")
+library("biomformat"); packageVersion("biomformat")
 ```
 
 ---

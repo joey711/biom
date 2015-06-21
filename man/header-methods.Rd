@@ -22,7 +22,7 @@ A list containing the header data.
 Extract the header from a \code{\link{biom-class}} object as a list.
 }
 \examples{
-biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
+biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
 x = read_biom(biom_file)
 header(x)
 }

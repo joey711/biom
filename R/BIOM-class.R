@@ -51,7 +51,7 @@
 #' @export
 #' @examples #
 #' # import with default parameters, specify a file
-#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
+#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
 #' x = read_biom(biom_file)
 #' show(x)
 #' print(x)
@@ -138,7 +138,7 @@ setMethod("biom", c("list"), function(x){
 #'
 #' @examples
 #' # import with default parameters, specify a file
-#' biomfile = system.file("extdata", "rich_dense_otu_table.biom", package = "biom")
+#' biomfile = system.file("extdata", "rich_dense_otu_table.biom", package = "biomformat")
 #' x = read_biom(biomfile)
 #' data = biom_data(x)
 #' data
@@ -214,7 +214,7 @@ make_biom <- function(data, sample_metadata=NULL, observation_metadata=NULL, id=
 #' @rdname show-methods
 #' @examples
 #' # # # import with default parameters, specify a file
-#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
+#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
 #' (x = read_biom(biom_file) )
 #' show(x)
 setMethod("show", "biom", function(object){
@@ -239,7 +239,7 @@ setMethod("show", "biom", function(object){
 #' @rdname header-methods
 #' @export
 #' @examples
-#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
+#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
 #' x = read_biom(biom_file)
 #' header(x)
 setGeneric("header", function(x) standardGeneric("header"))
@@ -269,7 +269,7 @@ setMethod("header", c("biom"), function(x){
 #' @rdname biom_shape-methods
 #' @examples
 #' # # # import with default parameters, specify a file
-#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
+#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
 #' (x = read_biom(biom_file) )
 #' biom_shape(x)
 setGeneric("biom_shape", function(x) standardGeneric("biom_shape"))
@@ -297,7 +297,7 @@ setMethod("biom_shape", c("biom"), function(x){
 #' @rdname matrix_element_type-methods
 #' @examples
 #' # # # import with default parameters, specify a file
-#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
+#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
 #' (x = read_biom(biom_file) )
 #' matrix_element_type(x)
 setGeneric("matrix_element_type", function(x) standardGeneric("matrix_element_type"))
@@ -333,7 +333,7 @@ setMethod("matrix_element_type", c("biom"), function(x){
 #' @rdname nrow-methods
 #' @examples
 #' # # # import with default parameters, specify a file
-#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
+#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
 #' (x = read_biom(biom_file) )
 #' nrow(x)
 setMethod("nrow", c("biom"), function(x){
@@ -366,7 +366,7 @@ setMethod("nrow", c("biom"), function(x){
 #' @rdname ncol-methods
 #' @examples
 #' # # # import with default parameters, specify a file
-#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
+#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
 #' (x = read_biom(biom_file) )
 #' ncol(x)
 setMethod("ncol", c("biom"), function(x){
@@ -397,7 +397,7 @@ setMethod("ncol", c("biom"), function(x){
 #' @rdname rownames-methods
 #' @examples
 #' # # # import with default parameters, specify a file
-#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
+#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
 #' (x = read_biom(biom_file) )
 #' rownames(x)
 setMethod("rownames", c("biom"), function(x){
@@ -428,7 +428,7 @@ setMethod("rownames", c("biom"), function(x){
 #' @rdname colnames-methods
 #' @examples
 #' # # # import with default parameters, specify a file
-#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
+#' biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
 #' (x = read_biom(biom_file) )
 #' colnames(x)
 setMethod("colnames", c("biom"), function(x){
@@ -473,13 +473,13 @@ setMethod("colnames", c("biom"), function(x){
 #' @rdname biom_data-methods
 #' @export
 #' @examples 
-#' min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biom")
-#' min_sparse_file  = system.file("extdata", "min_sparse_otu_table.biom", package = "biom")
-#' rich_dense_file  = system.file("extdata", "rich_dense_otu_table.biom", package = "biom")
-#' rich_sparse_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
-#' min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biom")
-#' rich_dense_char  = system.file("extdata", "rich_dense_char.biom", package = "biom")
-#' rich_sparse_char  = system.file("extdata", "rich_sparse_char.biom", package = "biom")
+#' min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biomformat")
+#' min_sparse_file  = system.file("extdata", "min_sparse_otu_table.biom", package = "biomformat")
+#' rich_dense_file  = system.file("extdata", "rich_dense_otu_table.biom", package = "biomformat")
+#' rich_sparse_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
+#' min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biomformat")
+#' rich_dense_char  = system.file("extdata", "rich_dense_char.biom", package = "biomformat")
+#' rich_sparse_char  = system.file("extdata", "rich_sparse_char.biom", package = "biomformat")
 #' # Read the biom-format files
 #' x1 = read_biom(min_dense_file)
 #' x2 = read_biom(min_sparse_file)
@@ -639,13 +639,13 @@ setMethod("biom_data", c("biom", "numeric", "numeric"), function(x, rows, column
 #' @rdname sample_metadata-methods
 #' @export
 #' @examples 
-#' min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biom")
-#' min_sparse_file  = system.file("extdata", "min_sparse_otu_table.biom", package = "biom")
-#' rich_dense_file  = system.file("extdata", "rich_dense_otu_table.biom", package = "biom")
-#' rich_sparse_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
-#' min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biom")
-#' rich_dense_char  = system.file("extdata", "rich_dense_char.biom", package = "biom")
-#' rich_sparse_char  = system.file("extdata", "rich_sparse_char.biom", package = "biom")
+#' min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biomformat")
+#' min_sparse_file  = system.file("extdata", "min_sparse_otu_table.biom", package = "biomformat")
+#' rich_dense_file  = system.file("extdata", "rich_dense_otu_table.biom", package = "biomformat")
+#' rich_sparse_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
+#' min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biomformat")
+#' rich_dense_char  = system.file("extdata", "rich_dense_char.biom", package = "biomformat")
+#' rich_sparse_char  = system.file("extdata", "rich_sparse_char.biom", package = "biomformat")
 #' # Read the biom-format files
 #' x1 = read_biom(min_dense_file)
 #' x2 = read_biom(min_sparse_file)
@@ -721,13 +721,13 @@ setMethod("sample_metadata", c("biom", "numeric"), function(x, columns, parallel
 #' @rdname observation_metadata-methods
 #' @export
 #' @examples 
-#' min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biom")
-#' min_sparse_file  = system.file("extdata", "min_sparse_otu_table.biom", package = "biom")
-#' rich_dense_file  = system.file("extdata", "rich_dense_otu_table.biom", package = "biom")
-#' rich_sparse_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
-#' min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biom")
-#' rich_dense_char  = system.file("extdata", "rich_dense_char.biom", package = "biom")
-#' rich_sparse_char  = system.file("extdata", "rich_sparse_char.biom", package = "biom")
+#' min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biomformat")
+#' min_sparse_file  = system.file("extdata", "min_sparse_otu_table.biom", package = "biomformat")
+#' rich_dense_file  = system.file("extdata", "rich_dense_otu_table.biom", package = "biomformat")
+#' rich_sparse_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
+#' min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biomformat")
+#' rich_dense_char  = system.file("extdata", "rich_dense_char.biom", package = "biomformat")
+#' rich_sparse_char  = system.file("extdata", "rich_sparse_char.biom", package = "biomformat")
 #' # Read the biom-format files
 #' x1 = read_biom(min_dense_file)
 #' x2 = read_biom(min_sparse_file)

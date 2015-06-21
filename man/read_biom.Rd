@@ -36,10 +36,10 @@ or its representation in R.
 }
 \examples{
 # # # import with default parameters, specify a file
-biom_file <- system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
+biom_file <- system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
 biom_file
 read_biom(biom_file)
-biom_file <- system.file("extdata", "min_sparse_otu_table.biom", package = "biom")
+biom_file <- system.file("extdata", "min_sparse_otu_table.biom", package = "biomformat")
 biom_file
 read_biom(biom_file)
 ## The previous examples use system.file() because of constraints in specifying a fixed

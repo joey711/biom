@@ -19,7 +19,7 @@ This function is meant only to be used if the user knows the file is
 a particular version / hdf5 format. Otherwise, the `read_biom` file should be used.
 }
 \examples{
-biom_file <- system.file("extdata", "rich_sparse_otu_table_hdf5.biom", package = "biom")
+biom_file <- system.file("extdata", "rich_sparse_otu_table_hdf5.biom", package = "biomformat")
 x = read_hdf5_biom(biom_file)
 x = biom(x)
 outfile = tempfile()

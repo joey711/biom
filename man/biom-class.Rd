@@ -21,7 +21,7 @@ These fields are returned as \code{\link{NULL}} when accessed
 by an accessor function.
 }
 \examples{
-biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
+biom_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
 x = read_biom(biom_file)
 header(x)
 biom_shape(x)

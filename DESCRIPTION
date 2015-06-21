@@ -1,15 +1,15 @@
-Package: biom
-Version: 0.4.0
-Date: 2015-06-19
+Package: biomformat
+Version: 0.4.1
+Date: 2015-06-20
 Maintainer: Paul J. McMurdie <mcmurdie@stanford.edu>
 License: GPL-2
 Title: An interface package (beta) for the BIOM file
     format.
 Type: Package
 Author: Paul J. McMurdie <mcmurdie@stanford.edu> and
-    Joseph Paulson <jpaulson@jimmy.harvard.edu>
-BugReports: https://github.com/joey711/biom/issues
-URL: https://github.com/joey711/biom/,
+    Joseph N Paulson <jpaulson@jimmy.harvard.edu>
+BugReports: https://github.com/joey711/biomformat/issues
+URL: https://github.com/joey711/biomformat/,
     http://biom-format.org/
 Description: This is an R package for interfacing with the
     BIOM format. This package includes basic tools for
