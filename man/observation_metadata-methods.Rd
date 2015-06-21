@@ -42,13 +42,13 @@ represented as a \code{\link{data.frame}} (if possible)
 or a list, with proper index names.
 }
 \examples{
-min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biom")
-min_sparse_file  = system.file("extdata", "min_sparse_otu_table.biom", package = "biom")
-rich_dense_file  = system.file("extdata", "rich_dense_otu_table.biom", package = "biom")
-rich_sparse_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
-min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biom")
-rich_dense_char  = system.file("extdata", "rich_dense_char.biom", package = "biom")
-rich_sparse_char  = system.file("extdata", "rich_sparse_char.biom", package = "biom")
+min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biomformat")
+min_sparse_file  = system.file("extdata", "min_sparse_otu_table.biom", package = "biomformat")
+rich_dense_file  = system.file("extdata", "rich_dense_otu_table.biom", package = "biomformat")
+rich_sparse_file = system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
+min_dense_file   = system.file("extdata", "min_dense_otu_table.biom", package = "biomformat")
+rich_dense_char  = system.file("extdata", "rich_dense_char.biom", package = "biomformat")
+rich_sparse_char  = system.file("extdata", "rich_sparse_char.biom", package = "biomformat")
 # Read the biom-format files
 x1 = read_biom(min_dense_file)
 x2 = read_biom(min_sparse_file)

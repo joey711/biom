@@ -61,7 +61,7 @@ for more details.
 }
 \examples{
 # import with default parameters, specify a file
-biomfile = system.file("extdata", "rich_dense_otu_table.biom", package = "biom")
+biomfile = system.file("extdata", "rich_dense_otu_table.biom", package = "biomformat")
 x = read_biom(biomfile)
 data = biom_data(x)
 data

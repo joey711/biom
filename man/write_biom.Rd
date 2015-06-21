@@ -24,7 +24,7 @@ Nothing. The first argument, \code{x}, is written to a file.
 Write a biom-format v1 file, returning a \code{biom-class}.
 }
 \examples{
-biom_file <- system.file("extdata", "rich_sparse_otu_table.biom", package = "biom")
+biom_file <- system.file("extdata", "rich_sparse_otu_table.biom", package = "biomformat")
 x = read_biom(biom_file)
 outfile = tempfile()
 write_biom(x, outfile)

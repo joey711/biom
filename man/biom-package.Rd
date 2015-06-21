@@ -16,10 +16,6 @@ Paul J. McMurdie II \email{mcmurdie@stanford.edu}
 }
 \references{
 \url{http://www.biom-format.org/}
-
- \url{https://github.com/joey711/biom}
-
- \url{http://cran.r-project.org/web/packages/biom/index.html}
 }
 \keyword{package}
 
