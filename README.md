@@ -22,5 +22,5 @@ devtools::install_github("biom", "joey711")
  
  * Note that this is a separate (but friendly!) project from the biom-format team, and the software license is different between this package and much of the rest of the biom-format software, which has switched to BSD.
 
- * The offical release version of this package is [made available through CRAN](http://cran.r-project.org/web/packages/biom/index.html).
+ * The official release version of this package is [made available through CRAN](http://cran.r-project.org/web/packages/biom/index.html).
 
